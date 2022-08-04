@@ -23,7 +23,7 @@ function Pokemon({pokemonName}){
             <div className='text-gray-100'>
                 {/* {console.log(pokemon)} */}
                 <div className='text-sm font-mono subpixel-antialiased'>
-                    <p className='font-semibold text-base'>
+                    <p className='font-bold text-base'>
                         <a href={pokemon.name}>
                             {capitalizeFirstLetter(pokemon.name)}
                         </a>
@@ -35,24 +35,24 @@ function Pokemon({pokemonName}){
                     <p>
                         {pokemon.types.map(function(t, idt){
                             return(
-                                <p className='flex-box' key={idt}>
+                                <p className='flex-box font-semibold' key={idt}>
                                     {capitalizeFirstLetter(t.type.name)}
                                 </p>
                             )
                         })}
                     </p>
                     <p>
-                        Abilities: 
+                        <p className='font-bold text-base'>Abilities:</p> 
                         {pokemon.abilities.map(function(d, idx){
                             return (
-                                <li key={idx}>
+                                <p className='font-semibold' key={idx}>
                                     {capitalizeFirstLetter(d.ability.name)}
-                                </li>
+                                </p>
                             )
                         })}
                     </p>
                     <p>
-                        Stats:
+                        <p className='font-bold text-base'>Stats:</p>
                         {pokemon.stats.map(function(s, ids){
                             return(
                                 <li key={ids}>
@@ -66,7 +66,7 @@ function Pokemon({pokemonName}){
         )
     } else {
         return(
-            <div className='text-3xl text-white'>
+            <div className='font-mono subpixel-antialiased text-3xl text-white'>
                 <p>pokemon loading...</p>
             </div>
         )
