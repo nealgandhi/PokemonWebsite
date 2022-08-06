@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../index.css";
 import funny from "../assets/grassyglide.gif";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import PokemonCard from "./PokemonCard";
 
 function Pokemon({ pokemonName }) {
   const [pokemon, setPokemon] = useState([]);
@@ -24,7 +25,10 @@ function Pokemon({ pokemonName }) {
         {/* {console.log(pokemon)} */}
         <div className="text-sm font-mono subpixel-antialiased">
           <p className="font-bold text-base">
-            <a href={pokemon.name}>{capitalizeFirstLetter(pokemon.name)}</a>
+            <Link to={pokemon.name}>{capitalizeFirstLetter(pokemon.name)}</Link>
+            <Routes>
+              <Route to={pokemon.name} element={<PokemonCard />} />
+            </Routes>
           </p>
           <div>
             <img src={pokemon.sprites.front_default} />
